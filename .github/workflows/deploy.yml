@@ -9,6 +9,7 @@ on:
         - main
 
 jobs:
+
     build:
        name: Compilação do projeto
        runs-on: ubuntu-22.04
@@ -59,3 +60,8 @@ jobs:
             with:
               name: test-reports
               path: target/site/surefire-report.html
+
+    deploy:
+        name: Implantar o projeto na AWS
+        runs-on: ubuntu-22.04
+        needs: test
